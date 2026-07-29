@@ -1,11 +1,53 @@
-<!--Nossa imagem que vai mudar-->
-<img id="minha imagem" scr="apagada.png" width="200">
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interruptor</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 30px;
+    }
 
-<!--O botao que aciona acao-->
-<button onclick="ligar()">ligar</button>
-<button onclick="desligar()">desligar</button>
+    img {
+      width: 220px;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+  <img id="myImage" src="459-4593815_pic-bulboff-on-off-gif-hd-png-download.png" alt="Lâmpada apagada">
 
-<!--onde o javascript vai morar-->
-<script>
-    //A logica vai entrar aqui!
-</script>
+  <div>
+    <button onclick="ligar()">Ligar</button>
+    <button onclick="desligar()">Desligar</button>
+  </div>
+
+  <script>
+  function ligar() {
+    var image = document.getElementById("myImage");
+    if (image.src.includes("bulboff")) {
+      image.src = "4-yellow-light-bulb-png-image-thumb.webp";
+      image.alt = "Lâmpada acesa";
+    } else {
+      image.src = "459-4593815_pic-bulboff-on-off-gif-hd-png-download.png";
+      image.alt = "Lâmpada apagada";
+    }
+  }
+  function desligar() {
+    var image = document.getElementById("myImage");
+    if (image.src.includes("bulbon")) {
+      image.src = "459-4593815_pic-bulboff-on-off-gif-hd-png-download.png";
+      image.alt = "Lâmpada apagada";
+    } else {
+      image.src = "4-yellow-light-bulb-png-image-thumb.webp";
+      image.alt = "Lâmpada acesa";
+    }
+  }
+
+
+  </script>
+</body>
+</html>
