@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interruptor de corda</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    svg {
+      width: 200px;
+      margin-bottom: 15px;
+    }
+
+    #corda, #puxador {
+      cursor: pointer;
+    }
+
+    #status {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <svg id="bulb" viewBox="0 0 100 220">
+    <!-- lâmpada -->
+    <circle id="glow" cx="50" cy="50" r="48" fill="yellow" opacity="0"></circle>
+    <circle id="bulbCircle" cx="50" cy="50" r="35" fill="#e0e0e0" stroke="#555" stroke-width="2"></circle>
+    <path d="M38 70 L38 85 Q38 92 45 92 L55 92 Q62 92 62 85 L62 70 Z" fill="#e0e0e0" stroke="#555" stroke-width="2"></path>
+    <rect x="40" y="90" width="20" height="6" rx="1" fill="#999"></rect>
+    <rect x="40" y="98" width="20" height="6" rx="1" fill="#999"></rect>
+    <rect x="42" y="106" width="16" height="6" rx="2" fill="#777"></rect>
+    <path id="filament" d="M40 45 L48 60 L52 50 L60 65" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+
+    <!-- corda -->
+    <g id="cordaGrupo">
+      <line id="corda" x1="50" y1="112" x2="50" y2="150" stroke="#555" stroke-width="2"></line>
+      <circle id="puxador" cx="50" cy="155" r="6" fill="#777" stroke="#555" stroke-width="1.5"></circle>
+    </g>
+
+    <!-- mensagem flutuante -->
+    <text id="mensagem" x="50" y="50" text-anchor="middle" font-size="9" font-weight="bold" fill="#333" opacity="0" style="transition: opacity 0.3s;"></text>
+  </svg>
+
+  <p id="status">Lâmpada apagada</p>
+  <p style="font-size: 13px; color: #777;">Clique na cordinha para puxar</p>
+
+  <script>
+  let ligada = false;
+  let puxando = false;
+
+  function atualizarVisual() {
+    var glow = document.getElementById("glow");
+    var bulbCircle = document.getElementById("bulbCircle");
+    var filament = document.getElementById("filament");
+    var status = document.getElementById("status");
+
+    if (ligada) {
+      glow.setAttribute("opacity", "0.5");
+      bulbCircle.setAttribute("fill", "#ffd11a");
+      filament.setAttribute("stroke", "#b36b00");
+      status.textContent = "Lâmpada acesa";
+    } else {
+      glow.setAttribute("opacity", "0");
+      bulbCircle.setAttribute("fill", "#e0e0e0");
+      filament.setAttribute("stroke", "#555");
+      status.textContent = "Lâmpada apagada";
+    }
+  }
+
+  let mensagemTimeout;
+
+  function mostrarMensagem(texto) {
+    var mensagem = document.getElementById("mensagem");
+    mensagem.textContent = texto;
+    mensagem.setAttribute("opacity", "1");
+
+    clearTimeout(mensagemTimeout);
+    mensagemTimeout = setTimeout(function () {
+      mensagem.setAttribute("opacity", "0");
+    }, 1200);
+  }
+
+  function puxarCorda() {
+    if (puxando) return;
+    puxando = true;
+
+    var corda = document.getElementById("corda");
+    var puxador = document.getElementById("puxador");
+
+    // animação: puxa a corda para baixo
+    corda.setAttribute("y2", "170");
+    puxador.setAttribute("cy", "175");
+
+    // liga/desliga e mostra a mensagem no meio da lâmpada
+    ligada = !ligada;
+    atualizarVisual();
+    mostrarMensagem(ligada ? "Ligada!" : "Desligada!");
+
+    // depois de um instante, a corda volta pro lugar
+    setTimeout(function () {
+      corda.setAttribute("y2", "150");
+      puxador.setAttribute("cy", "155");
+      puxando = false;
+    }, 200);
+  }
+
+  document.getElementById("corda").addEventListener("click", puxarCorda);
+  document.getElementById("puxador").addEventListener("click", puxarCorda);
+  </script>
+
+</body>
+</html>
