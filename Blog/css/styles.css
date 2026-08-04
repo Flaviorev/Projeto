@@ -1,0 +1,38 @@
+/* Estilos principais do blog */
+:root{
+    --brand:#183c63;
+    --bg:#f0f0f0;
+    --text:#183c63;
+    --container-max:800px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;height:100%;font-family:Arial,Helvetica,sans-serif;color:var(--text)}
+.skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+.skip-link:focus{position:static;left:0;top:0;padding:8px;background:#000;color:#fff;z-index:1000}
+.container{max-width:var(--container-max);margin:0 auto;padding:20px}
+header{background:var(--brand);color:#fff}
+header .container{padding:24px}
+header h1{margin:0;font-size:1.6rem}
+header p{margin:8px 0 0}
+.main-nav{list-style:none;margin:12px 0 0;padding:0;display:flex;gap:12px}
+.main-nav a{color:#fff;text-decoration:none;padding:6px 8px;border-radius:4px}
+.main-nav a:focus,.main-nav a:hover{background:rgba(255,255,255,0.08);outline:none}
+main{background:var(--bg);color:var(--text);padding:24px 0}
+.post h2{margin-top:0}
+.about{margin-top:18px}
+footer{background:#0f2a45;color:#fff;padding:12px 0}
+.footer-inner{padding:12px}
+
+/* Acessibilidade de foco */
+a:focus,button:focus{outline:3px solid #ffd54f;outline-offset:2px}
+
+/* Responsividade */
+@media (max-width:600px){
+    .container{padding:12px}
+    header h1{font-size:1.3rem}
+    .main-nav{flex-wrap:wrap}
+}
+
+/* Pequenas melhorias tipográficas */
+body{line-height:1.6}
+.author{font-style:italic;color:#666}

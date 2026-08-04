@@ -20,6 +20,30 @@
             max-width: 800px;
             margin: 0 auto;
         }
+        main{
+            margin: 0 auto;
+        }
+        img{
+            width: 80px;
+            height: 90px;
+        }
+        main{
+            background-color: #FFFFFF;
+            COLOR: #183C63;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+        }
+        p{
+            font-weight: bold;
+        }
+        div p {
+            font-weight: bold;
+        }
+        .artigo-autor{
+            font-weight: bold;
+        }
 </style>
 </head>
 <body>
@@ -28,11 +52,26 @@
         <p>Bem-vindo ao meu blog de tecnologia! Aqui você encontrará artigos, tutoriais e notícias sobre as últimas tendências em tecnologia.</p>
     </header>
     <main>
+        <img src="meu_blog_pt2.png" alt="Imagem do blog">
+      <div>
         <h2>Meu primeiro post</h2>
+        <p class="artigo-autor">por: Flavio Candido de Lima</p>
         <p>Boas-vindas ao meu primeiro post!</p>
         <p>Aqui vou compartilhar minhas experiências e aprendizados no mundo da tecnologia. Fique à vontade para explorar e deixar seus comentários.</p>
+        <button> ❤️ <span>0</span> </button>
         <h2>Sobre mim</h2>
         <p>Sou um entusiasta de tecnologia e estou animado para compartilhar meu conhecimento com vocês. Espero que aproveitem o conteúdo do blog!</p>
-        <p>por: Flavio Candido de Lima</p>
+    </div>
     </main>
     </body>
+    <script>
+        const button = document.querySelector('button');
+        const span = button.querySelector('span');
+        let count = 0;
+
+        button.addEventListener('click', () => {
+            alert('Obrigado por curtir o post!');
+            count++;
+            span.textContent = count;
+        })  
+    </script>
