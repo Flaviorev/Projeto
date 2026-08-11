@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Blog Tech</title>
+    <style>
+        header {
+            background-color: blue;
+            color: #FFFFFF;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            border: 5px solid #cf1010;
+            padding: 16px;
+        }
+
+        main {
+            background-color: #ffffff;
+            color: #183c63;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+        }
+
+        img {
+            width: 80px;
+            height: 80px;
+        }
+
+        div p {
+            font-weight: bold;
+        }
+
+        .artigo-autor {
+            font-weight: bold;
+        }
+        
+        article{
+            display: flex;    
+            padding-left: 30px
+        }
+            
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <h1>Meu Blog Tech</h1>
+        <p>Vou Compartilhar conhecimentos sobre tecnologia e programação!</p>
+    </header>
+    <main>
+        <article>
+            <img src="meu_blog_pt2.png" alt="Imagem do blog">
+
+            <div>
+                <h2>Meu Primeiro Post</h2>
+                <p class="artigo-autor">por: Flavio Candido de Lima</p>
+                <p>Boas-vindas ao meu blog! aqui vou compartilhar
+                    dicas de programaçao e curiosidade da area de tecnologia.</p>
+                <button> ❤️ <span>0</span> </button>
+                <button> 👍 <span>0</span> </button>
+
+            </div>
+        </article>
+    </main>
+    <main>
+        <article>
+            <img src="meu_blog_pt2.png" alt="logotipo conceitual de tecnologia e educaçao:
+        um livro aberto de onde emerge um cerebro digital brilhante,cercado por
+        icones de wi-fi, circuito e lampada de ideia.
+         cores em tons de azul e branco.">
+
+            <div>
+                <h2>Meu segundo Post</h2>
+                <p class="artigo-autor">por: Flavio Candido de Lima</p>
+                <p>A forma mais simples de tecnologia é o desenvolvimento e a utilização de ferramentas básicas. A descoberta pré-histórica de como controlar o fogo e a subsequente Revolução Neolítica aumentaram a disponibilidade de fontes de alimento, enquanto a invenção da roda auxiliou humanos a viajar, transportar cargas e controlar seu ambiente. Desenvolvimentos ao longo da história, como a prensa móvel, também conhecida como impressora, o telefone e a Internet diminuíram as barreiras físicas da comunicação e permitiram que os humanos interagissem livremente em uma escala global.</p>
+                <button> ❤️ <span>0</span> </button>
+                <button> 👍 <span>0</span> </button>
+
+            </div>
+        </article>
+    </main>
+    <script>
+        const botoes = document.querySelectorAll("button");
+        botoes.forEach(function (botao) {
+            botao.addEventListener("click", botaoClicado);
+        });
+
+
+        function botaoClicado() {
+            console.log("fui clicado");
+            let texto = this.querySelector("span");
+            texto.textContent++;
+        }
+    </script>
+</body>
+
+</html>
