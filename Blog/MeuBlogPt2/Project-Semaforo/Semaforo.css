@@ -1,0 +1,46 @@
+body{
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+}
+.corpo{
+    width: 220px;
+    height: 310px;
+    background-color: #2b2b2b;
+    border-radius: 40px
+}
+.semaforo {position: relative;}
+.luz-vermelha{
+    position: absolute;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background-color: red;
+    left: 77px;
+    top: 34px;
+    opacity: 0.3;
+}
+.luz-amarela{
+    position: absolute;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background-color: yellow;
+    left: 77px;
+    top: 123px;
+    opacity: 0.3;
+}
+.luz-verde{
+    position: absolute;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background-color: green;
+    left: 77px;
+    top: 213px;
+    opacity: 0.3;
+}
+.luz-vermelha.acesa {opacity: 1; box-shadow: 0 0 20px 8px red;}
+.luz-amarela.acesa {opacity: 1; box-shadow: 0 0 20px 8px yellow;}
+.luz-verde.acesa {opacity: 1; box-shadow: 0 0 20px 8px green;}
